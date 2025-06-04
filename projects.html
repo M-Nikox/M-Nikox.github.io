@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matej Nikolovski - Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .prompt::before {
+            content: 'matej@portfolio:~/projects$ '; /* Updated prompt for projects page */
+            color: #60a5fa; /* blue-400 */
+        }
+        .cursor {
+            display: inline-block;
+            width: 0.5em;
+            height: 1.2em;
+            background-color: #4ade80; /* green-400 */
+            animation: blink 1s step-end infinite;
+            margin-left: 0.25em;
+            vertical-align: bottom;
+        }
+        @keyframes blink {
+            50% {
+                background-color: transparent;
+            }
+        }
+        .project-image-container { /* Added cursor pointer here for better UX */
+            cursor: pointer;
+        }
+        .project-image-container:hover .project-image-overlay {
+            opacity: 1;
+        }
+        .modal-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+        #pageContentContainer.blurred {
+            filter: blur(5px);
+            transition: filter 0.3s ease-out;
+        }
+        /* Basic card styling for projects */
+        .project-card {
+            background-color: #1f2937; /* gray-800 */
+            border: 1px solid #374151; /* gray-700 */
+            transition: all 0.3s ease-in-out;
+        }
+        .project-card:hover {
+            border-color: #4ade80; /* green-400 */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+<div id="pageContentContainer" class="transition-filter duration-300 ease-in-out">
+    <div class="container mx-auto min-h-screen flex flex-col p-4 sm:p-6 md:p-8">
+
+        <!-- Header and Navigation -->
+        <header class="mb-8">
+            <div class="flex justify-between items-center">
+                <h1 class="prompt text-2xl sm:text-3xl font-semibold text-gray-300">ls ./projects/<span class="cursor ml-0"></span></h1>
+                <a href="./index.html" class="text-green-400 hover:text-green-300 border border-green-500 hover:border-green-400 rounded-md px-4 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    &lt; Back to Home
+                </a>
+            </div>
+            <p class="text-gray-500 mt-2 text-sm sm:text-base">A collection of my projects and experiments. Click on the images, something might happen! ;)</p>
+        </header>
+
+        <!-- Main Projects Grid -->
+        <main class="flex-grow">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                <!-- Project Card 1 -->
+                <div class="project-card rounded-lg shadow-lg overflow-hidden flex flex-col">
+                    <div class="project-image-container relative h-48 sm:h-56 w-full overflow-hidden"
+                         data-title="Fact Factors - Mobile Game Development"
+                         data-description="I am part of the team that developed &#34;Fact Factors,&#34; a mobile game created in Unity, focusing on the interplay between credibility and popularity in media.
+
+                            My key contributions are as follows:
+
+                            1. Art and Visual Direction:
+                            I was responsible for designing all the artwork and logos for the game, establishing its visual identity and overall vibe. This involved creating a cohesive look that matched the game's theme and narrative. The logo was crafted using Krita as was the GDD image depicting the game, I also generated images for the in-game headlines using Stable Diffusion, after which Andrej Stojkovikj added blur in post to hide AI imperfections.
+
+                            2. Headline and Comments, Writer
+                            A significant part of the game involves writing engaging posts based on headlines. I wrote around 20 diverse headlines that ranged from comedic to serious, incorporating real and fictional elements. This variety aimed to enrich the player experience and encourage different gameplay strategies.
+                            Additionally, I created a set of social media comments that players would encounter as replies to their posts within the game. This included 15 positive comments and 15 negative comments, adding depth to the gameplay and making interactions feel more authentic and relatable.
+
+                            &#34;Fact Factors&#34; not only served as a practical application of our studies in Mediums and Communications but also provided valuable insights into the mechanics of social media and its influence on public perception. The project emphasized the importance of responsible media creation and the consequences of misinformation, making it a timely and relevant endeavor.
+
+                            Through this project, I enhanced my skills in game design, art creation, and team collaboration. The experience reinforced my passion for combining technical skills with creative storytelling, and I look forward to applying these lessons in future projects.
+
+                            Personally, I would love to work on a project like this again.
+                            ">
+                        <img src="images/projects/factfactors/gameplay.jpg" alt="Project Gamma" class="project-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="project-image-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <span class="text-white text-lg font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-medium text-green-400 mb-1">Fact Factors - Mobile Game Development</h3>
+                        <p class="text-xs text-blue-400 mb-3">Unity, OpenAI API</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                            Led visual direction, designed all artwork, logos and the game's visual identity using Krita and AI-assisted tools like Stable Diffusion via Forge & ComfyUI. Wrote 20 dynamic headlines and 30 social media-style comments to enhance immersion.                        </p>
+                        <div class="mt-auto">
+                            <a href="#" onclick="alert('Unfortunately, our OpenAI subscription was only planned for one month.'); return false;" class="inline-block text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 mr-2">View Code</a>
+                            <a href="#" onclick="alert('Unfortunately, our OpenAI subscription was only planned for one month.'); return false;" class="inline-block text-sm bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card rounded-lg shadow-lg overflow-hidden flex flex-col">
+                    <div class="project-image-container relative h-48 sm:h-56 w-full overflow-hidden"
+                         data-title="Arduino-Powered Pulse Oximeter"
+                         data-description="I participated in a challenging 5-hour workshop called Loging &#34;Technology for You&#34;	 2022 which was the third time Loging hosted the workshop where I collaborated with a younger student from my school to design and assemble an Arduino-powered pulse oximeter. We utilized various materials and tools provided to us, including soldering irons, solder, breadboards, and more.
+
+                            We faced the challenge of coding the device and assembling it entirely on our own, which pushed our technical skills to the limit. Our hard work paid off as we achieved 4th place out of 9 schools, showcasing our ability to problem-solve and work effectively under pressure.
+
+                            This experience not only enhanced my technical knowledge but also reinforced the importance of teamwork and perseverance in engineering projects.">
+                        <img src="images/projects/techforyou/showcase.jpg" alt="meandteammate" class="project-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="project-image-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <span class="text-white text-lg font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-medium text-green-400 mb-1">Arduino-Powered Pulse Oximeter</h3>
+                        <p class="text-xs text-blue-400 mb-3">Arduino, C++, PCB Design</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                            Participated in a challenging 5-hour workshop called "Technology for You"
+                            with a younger teammate from the same school.<br/>
+                            From scratch, we designed, soldered and programmed a Pulse
+                            Oximeter using the various tools provided to us.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="https://www.loging.mk/123/148/News/Nastani/Treta_rabotilnica_za_razvojni_mikroprocesorski_sistemi_vo_ramkite_na_proektot_Tehnologija_za_tebe" class="inline-block text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">More Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card rounded-lg shadow-lg overflow-hidden flex flex-col">
+                    <div class="project-image-container relative h-48 sm:h-56 w-full overflow-hidden"
+                         data-title="Arduino Breadboard Piano"
+                         data-description="I designed and built an interactive piano using an Arduino, breadboard, wires and switches. The piano could be played manually (with buttons for notes C, D, E, F, G, A, H, C) and also had the capability of playing imported songs written note by note in .txt format.
+
+                        This project helped me develop skills in Arduino programming, circuit design and file interfacing, creating an engaging and interactive musical device that bridges hardware with software in a creative way.
+
+                        The revised version is on a 3D printed board with 16 switches instead of the regular 8, allowing 2 octaves to be played. The switches were changed from the cheap and very heavy tactile switches to lighter mechanical keyboard switches implemented as sockets.">
+                        <img src="images/projects/techforyou/piano.jpg" alt="piano" class="project-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="project-image-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <span class="text-white text-lg font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-medium text-green-400 mb-1">Arduino Breadboard Piano</h3>
+                        <p class="text-xs text-blue-400 mb-3">Arduino, C++, Schematics</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                            Designed and built an interactive piano using an Arduino, breadboard, wires and switches. The piano could be played manually (with buttons for notes C, D, E, F, G, A, H, C) and also had the capability of playing imported songs written note by note in .txt format.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="#" onclick="alert('Unfortunately, I wrote all the code for this back in 2021 on a school computer, I believe. Unless my high school still has that .ino file laying around, it is considered lost media, I might re-do this project in the future.')" class="inline-block text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 (Example) -->
+                <div class="project-card rounded-lg shadow-lg overflow-hidden flex flex-col">
+                    <div class="project-image-container relative h-48 sm:h-56 w-full overflow-hidden"
+                         data-title="Arduino-Powered Line-Following Car"
+                         data-description="I helped design and build an autonomous line-following car powered by Arduino and a portable power bank. The car features two fixed wheels driven by a LN298N motor driver and a 360-degree rotating wheel at the front for agile navigation.
+
+                        The setup includes a breadboard and two IR sensors (set) on either side at the front of the car, allowing the car to detect black lines on a light background and follow them effectively. I helped develop the algorithm that enables the car to adjust its movement based on the sensor readings, creating a functional and interactive robotics project that we presented at the third Loging &#34;Technology for You&#34;workshop.
+
+                        This experience enhanced my skills in robotics, circuit design and sensor integration, deepening my understanding of autonomous systems and optimizing the car's performance for every run.">
+                        <img src="images/projects/techforyou/linecar.jpg" alt="linecar" class="project-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="project-image-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <span class="text-white text-lg font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-medium text-green-400 mb-1">Arduino-Powered Line-Following Car</h3>
+                        <p class="text-xs text-blue-400 mb-3">Arduino, C++, Circuit Design, Automation</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                            Helped design and build an autonomous line-following car powered by Arduino and a portable power bank.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="#" onclick="alert('Link to GitHub repo or live demo'); return false;" class="inline-block text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 (Example) -->
+                <div class="project-card rounded-lg shadow-lg overflow-hidden flex flex-col">
+                    <div class="project-image-container relative h-48 sm:h-56 w-full overflow-hidden"
+                         data-title="Desktop Power Supply Restoration via Sensor Bypass"
+                         data-description="In this project, I worked under the supervision of my Electrical Measurements professor to restore a faulty CoolerMaster MWE650 desktop power supply. The under-voltage protection circuit (UVP) was malfunctioning, causing the power supply to shut itself down on every startup. By safely removing the components in the internals of the board, I managed to bypass the UVP by first identifying it's exact location on the IC board, which I have the TechPowerUp forums to thank for.
+
+                        This hands-on project involved using school equipment like their multimeters, testers and donor computers, allowing me to develop skills in PCB-level troubleshooting, analysis and repair, while obviously balancing functionality with safety considerations, as desktop power supplies are known to be quite dangerous when handled improperly.
+
+                        This is most likely not something I will ever do again, as it is quite dangerous and reckless, even under supervision. I will admit it was fun though.">
+                        <img src="images/projects/others/coolermaster.png" alt="linecar" class="project-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="project-image-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <span class="text-white text-lg font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-medium text-green-400 mb-1">Desktop Power Supply Restoration via Sensor Bypass</h3>
+                        <p class="text-xs text-blue-400 mb-3">Electrical Engineering, Soldering, Troubleshooting, Praying</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                            Restored a faulty power supply by bypassing the UVP module.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="#" onclick="alert('Link to GitHub repo or live demo'); return false;" class="inline-block text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-700 text-center">
+            <p class="text-sm text-gray-500">&copy; <span id="currentYear"></span> Matej Nikolovski. All rights reserved.</p>
+            <p class="text-xs text-gray-600 mt-1">Powered by... me xd</p>
+        </footer>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-2xl max-w-4xl w-full relative border border-green-500/50 flex flex-col md:flex-row gap-4 md:gap-6 max-h-[90vh] overflow-y-auto md:overflow-y-hidden">
+        <!-- Image Container -->
+        <div class="md:w-1/2 flex-shrink-0 flex items-center justify-center">
+            <img id="modalImage" src="" alt="Zoomed Project Image" class="max-w-full max-h-[70vh] md:max-h-[80vh] object-contain rounded">
+        </div>
+        <!-- Text Description Container -->
+        <div class="md:w-1/2 flex flex-col py-2 md:py-0 md:max-h-[80vh] md:overflow-y-auto">
+            <h3 id="modalProjectTitle" class="text-xl lg:text-2xl font-semibold text-green-400 mb-2">Project Title</h3>
+            <div id="modalProjectDescription" class="text-gray-300 text-sm leading-relaxed space-y-2">
+                <p>Description will load here...</p>
+            </div>
+        </div>
+        <button id="closeModalButton" class="absolute top-2 right-2 sm:top-3 sm:right-3 text-gray-400 hover:text-white bg-gray-900 bg-opacity-70 rounded-full p-1.5 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select all project image containers
+        const projectImageContainers = document.querySelectorAll('.project-image-container');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const pageContentContainer = document.getElementById('pageContentContainer');
+
+        projectImageContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                const img = container.querySelector('.project-image');
+                const title = container.dataset.title || img.alt; // Fallback to alt text for title
+                const description = container.dataset.description || "No description available."; // Fallback description
+
+                if (img) {
+                    document.getElementById('modalImage').src = img.src;
+                    document.getElementById('modalImage').alt = img.alt;
+                    document.getElementById('modalProjectTitle').textContent = title;
+                    document.getElementById('modalProjectDescription').innerHTML = description.split('\n').map(p => `<p>${p}</p>`).join(''); // Format description with paragraphs
+
+                    modal.classList.remove('hidden');
+                    setTimeout(() => modal.classList.add('modal-active'), 10);
+                    pageContentContainer.classList.add('blurred');
+                }
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('modal-active');
+            setTimeout(() => modal.classList.add('hidden'), 300); // Match transition duration
+            pageContentContainer.classList.remove('blurred');
+        };
+
+        closeModalButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            // Close if clicked outside the image content area (the modal's dark background)
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Update year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    });
+</script>
+</body>
+</html>
